@@ -60,6 +60,7 @@ string Aircraft::getName()
 }
 int Aircraft::getN()
 {
+	return N;
 }
 string * Aircraft::getPlace()
 {
