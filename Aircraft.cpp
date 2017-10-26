@@ -68,6 +68,15 @@ string * Aircraft::getPlace()
 }
 void Aircraft::info()
 {
+	cout<<"Aircraft "<<name<<endl;
+	cout<<"Number place "<<N<<endl;
+	cout<<"Places: ";
+	for(int i=0; i<N; i++)
+	{
+		if(!(i%10)) cout<<endl;
+		cout<<place[i]<<ends;
+	}
+	cout<<"\n\n";
 }
 Aircraft::~Aircraft()
 {
