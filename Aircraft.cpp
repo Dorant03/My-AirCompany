@@ -56,6 +56,7 @@ Aircraft& Aircraft::operator=(const Aircraft &ob)
 }
 string Aircraft::getName()
 {
+	return name;
 }
 int Aircraft::getN()
 {
