@@ -64,6 +64,7 @@ int Aircraft::getN()
 }
 string * Aircraft::getPlace()
 {
+	return place;
 }
 void Aircraft::info()
 {
