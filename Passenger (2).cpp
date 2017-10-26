@@ -18,3 +18,16 @@ Passenger::Passenger(int k)
 	cout<<"Surname passenger: "; cin>>surname;
 	cout<<"Year: ";    cin>>year; cin.get();
 }
+Passenger::Passenger(ifstream &fin)
+{
+	fin>>name;
+	fin>>surname;
+	fin>>year;
+
+}
+Passenger::Passenger(const Passenger &ob)
+{
+	strcpy(name, ob.name);
+	strcpy(surname, ob.surname);
+	year=ob.year;
+}
