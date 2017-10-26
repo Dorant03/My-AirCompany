@@ -22,5 +22,11 @@ public:
 	Travel(ifstream &fin);
 	Travel(const Travel &);
 	Travel & operator=(const Travel &ob);
+	Airport  getPortStart();
+	Airport  getPortEnd();
+	Aircraft  getCraftName();
+	Passenger * getPassenger();
+	int getNumberPassenger();
+	void info();
 	~Travel();
 };
