@@ -13,7 +13,8 @@ public:
 	Aircraft();
 	Aircraft(int);
 	Aircraft(ifstream &fin);
-	
+	Aircraft(const Aircraft &);
+	Aircraft& operator=(const Aircraft&);
 	string getName();
 	int getN();
 	string * getPlace();
