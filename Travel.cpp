@@ -79,3 +79,52 @@ Travel & Travel::operator=(const Travel &ob)
 	number_passenger=ob.number_passenger;
 	return *this;
 }
+Airport Travel::getPortStart()
+{
+	return port_start;
+}
+Airport Travel::getPortEnd()
+{
+	return port_end;
+}
+Aircraft Travel::getCraftName()
+{
+	return craft_name;
+}
+string  Travel::getTimeStart()
+{
+	return time_start;
+}
+string  Travel::getTimeEnd()
+{
+	return time_end;
+}
+
+Passenger * Travel::getPassenger()
+{
+	return array_passenger;
+}
+int Travel::getNumberPassenger()
+{
+	return number_passenger;
+}
+
+void Travel::info()
+{
+	cout<<"\nAirport start: "<<endl;
+    port_start.info();
+	cout<<"Airport end: "<<endl;
+	port_end.info();
+	cout<<"Time start: "<<time_start<<endl;
+	cout<<"Time end: "<<time_end<<endl;
+	cout<<"\n";
+	cout<<"Aircraft: "<<endl;
+	craft_name.info();
+	for(int i=0; i<number_passenger; i++)
+	{
+		array_passenger[i].info();
+	}
+	cout<<"\n";
+}
+Travel::~Travel()
+{  }
