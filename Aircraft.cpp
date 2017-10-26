@@ -80,4 +80,5 @@ void Aircraft::info()
 }
 Aircraft::~Aircraft()
 {
+	delete [] place;
 }
