@@ -34,6 +34,14 @@ Aircraft::Aircraft(ifstream &fin)
 }
 Aircraft::Aircraft(const Aircraft &ob)
 {
+	name=ob.name;
+	N=ob.N;
+	place=new string [ob.N];
+	for(int i=0; i<ob.N; i++)
+	{
+		place[i]=ob.place[i];
+	}
+
 }
 Aircraft& Aircraft::operator=(const Aircraft &ob)
 {
