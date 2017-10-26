@@ -24,6 +24,13 @@ Aircraft::Aircraft(int k)
 }
 Aircraft::Aircraft(ifstream &fin)
 {
+	getline(fin, name);
+	fin>>N; fin.get();
+	place = new string [N];
+	for(int i=0; i<N;i++)
+	{
+		getline(fin, place[i]);
+	}
 }
 Aircraft::Aircraft(const Aircraft &ob)
 {
