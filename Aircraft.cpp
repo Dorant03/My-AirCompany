@@ -7,10 +7,9 @@ using namespace std;
 
 Aircraft::Aircraft()
 {
-  name="\0";
+	name="\0";
 	N=0;
 	place=new string;
-
 }
 Aircraft::Aircraft(int k)
 {
