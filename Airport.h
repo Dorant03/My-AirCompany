@@ -11,5 +11,9 @@ protected:
 	string country;
 public:
 	Airport();
+	Airport(int);
+	Airport(ifstream &fin);
+	Airport(const Airport &);
+	Airport& operator=(const Airport&);
 	~Airport();
 };
