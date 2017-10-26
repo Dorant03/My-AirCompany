@@ -13,6 +13,14 @@ Aircraft::Aircraft()
 }
 Aircraft::Aircraft(int k)
 {
+	cout<<"Name aircraft: "; getline(cin, name);
+	cout<<"Number place: "; cin>>N; cin.get();
+	cout<<"Name places: "<<endl;
+	place = new string [N];
+	for(int i=0; i<N;i++)
+	{
+		getline(cin, place[i]);
+	}
 }
 Aircraft::Aircraft(ifstream &fin)
 {
