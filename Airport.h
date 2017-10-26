@@ -15,5 +15,9 @@ public:
 	Airport(ifstream &fin);
 	Airport(const Airport &);
 	Airport& operator=(const Airport&);
+	string getName();
+	string getCity();
+	string getCountry();
+	void info();
 	~Airport();
 };
