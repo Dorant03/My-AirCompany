@@ -26,6 +26,8 @@ public:
 	Airport  getPortEnd();
 	Aircraft  getCraftName();
 	Passenger * getPassenger();
+	string  getTimeStart();
+	string  getTimeEnd();
 	int getNumberPassenger();
 	void info();
 	~Travel();
