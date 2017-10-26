@@ -36,5 +36,6 @@ Airport& Airport::operator=(const Airport &ob)
 	country=ob.country;
 	return *this;
 }
+Airport.h
 Airport::~Airport()
 { }
