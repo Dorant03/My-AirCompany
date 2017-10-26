@@ -45,6 +45,14 @@ Aircraft::Aircraft(const Aircraft &ob)
 }
 Aircraft& Aircraft::operator=(const Aircraft &ob)
 {
+	name=ob.name;
+	N=ob.N;
+	place=new string [ob.N];
+	for(int i=0; i<ob.N; i++)
+	{
+		place[i]=ob.place[i];
+	}
+	return *this;
 }
 string Aircraft::getName()
 {
