@@ -31,3 +31,29 @@ Passenger::Passenger(const Passenger &ob)
 	strcpy(surname, ob.surname);
 	year=ob.year;
 }
+Passenger& Passenger::operator=(const Passenger &ob)
+{
+	strcpy(name, ob.name);
+	strcpy(surname, ob.surname);
+	year=ob.year;
+	return *this;
+}
+char * Passenger::getName()
+{
+	return name;
+}
+char * Passenger::getSurname()
+{
+	return surname;
+}
+int Passenger::getYear()
+{
+	return year;
+}
+void Passenger::info()
+{
+	cout.setf(ios::left);
+	cout<<left<<setw(15)<<name<<setw(15)<<surname<<year<<" Years"<<endl;
+}
+Passenger::~Passenger()
+{  }
