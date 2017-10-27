@@ -9,24 +9,22 @@ Travel::Travel()
 {
 	time_start="\0";
 	time_end="\0";
-	array_passenger=new Passenger [craft_name.getN()];
 	number_passenger=0;
 }
 Travel::Travel(int)
 {
-	Airport start(1);
-	port_start=start;
-	Airport end(1);
-	port_end=end;
-	cout<<"Time start: "; getline(cin, time_start);
-	cout<<"Time end: "; getline(cin, time_end);
-	Aircraft craft(1);
-	craft_name=craft;
+	string name; ifstream fin; 
+	cout<<"\tAIRPORT START\nName City: ";   getline(cin, name);  fin.open(name+".txt");
+	port_start=Airport(fin);                                     fin.close();
+	cout<<"\tAIRPORT END\nName City: ";     getline(cin, name);  fin.open(name+".txt");
+	port_end=Airport(fin);                                       fin.close();
+	cout<<"\tTIME\n";
+	cout<<"Time start: ";                   getline(cin, time_start);
+	cout<<"Time end: ";                     getline(cin, time_end);
+	cout<<"\tAIRCRAFT\nName Aircraft: ";    getline(cin, name);  fin.open(name+".txt");
+	craft_name=Aircraft(fin);                                    fin.close();
 	number_passenger=0;
 	array_passenger=new Passenger [craft_name.getN()];
-	Passenger passenger(1);
-	array_passenger[number_passenger]=passenger;
-	number_passenger++;
 }
 Travel::Travel(ifstream &fin)
 {
@@ -104,27 +102,49 @@ Passenger * Travel::getPassenger()
 {
 	return array_passenger;
 }
+void Travel::setPassenger(Passenger * _array)
+{
+	array_passenger=_array;
+}
 int Travel::getNumberPassenger()
 {
 	return number_passenger;
 }
-
+void Travel::setPassenger(Passenger &passenger)
+{
+	array_passenger[number_passenger]=passenger;
+	number_passenger++;
+}
 void Travel::info()
 {
-	cout<<"\nAirport start: "<<endl;
+	cout<<"\n\tAIRPORT START\n";
     port_start.info();
-	cout<<"Airport end: "<<endl;
+	cout<<"\tAIRPORT END\n";
 	port_end.info();
+	cout<<"\tTIME\n";
 	cout<<"Time start: "<<time_start<<endl;
 	cout<<"Time end: "<<time_end<<endl;
-	cout<<"\n";
-	cout<<"Aircraft: "<<endl;
+	cout<<"\tAIRCRAFT\n";
 	craft_name.info();
-	for(int i=0; i<number_passenger; i++)
+	cout<<"\tPASSENGER\n";
+	for(int i=0; i<craft_name.getN(); i++)
 	{
 		array_passenger[i].info();
 	}
 	cout<<"\n";
+}
+void Travel::writeFile()
+{
+	ofstream fout(port_start.getCity()+"-"+port_end.getCity()+"-"+time_start.substr(time_start.find(" ")+1)+".txt");
+	port_start.writeFile(fout);
+	port_end.writeFile(fout);
+	fout<<time_start<<endl;
+	fout<<time_end<<endl;
+	craft_name.writeFile(fout);
+	for(int i=0; i<craft_name.getN(); i++)
+	{
+		array_passenger[i].writeFile(fout);
+	}
 }
 Travel::~Travel()
 {  }

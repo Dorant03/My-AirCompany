@@ -26,9 +26,12 @@ public:
 	Airport  getPortEnd();
 	Aircraft  getCraftName();
 	Passenger * getPassenger();
+	void setPassenger(Passenger * );
 	string  getTimeStart();
 	string  getTimeEnd();
+	void setPassenger(Passenger &passenger);
 	int getNumberPassenger();
 	void info();
+	void writeFile();
 	~Travel();
 };
