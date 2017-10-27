@@ -8,16 +8,16 @@ class Aircraft
 protected:
 	string name;
 	int N;
-	string *place;
+	char **place;
 public:
 	Aircraft();
-	Aircraft(int);
 	Aircraft(ifstream &fin);
 	Aircraft(const Aircraft &);
 	Aircraft& operator=(const Aircraft&);
 	string getName();
 	int getN();
-	string * getPlace();
+	char ** getPlace();
 	void info();
+	void writeFile(ofstream &fout);
 	~Aircraft();
 };

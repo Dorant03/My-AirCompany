@@ -19,5 +19,6 @@ public:
 	string getCity();
 	string getCountry();
 	void info();
+	void writeFile(ofstream &fout);
 	~Airport();
 };

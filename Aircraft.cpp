@@ -9,45 +9,34 @@ Aircraft::Aircraft()
 {
 	name="\0";
 	N=0;
-	place=new string;
-}
-Aircraft::Aircraft(int k)
-{
-	cout<<"Name aircraft: "; getline(cin, name);
-	cout<<"Number place: "; cin>>N; cin.get();
-	cout<<"Name places: "<<endl;
-	place = new string [N];
-	for(int i=0; i<N;i++)
-	{
-		getline(cin, place[i]);
-	}
+	place=new char*;
 }
 Aircraft::Aircraft(ifstream &fin)
 {
 	getline(fin, name);
 	fin>>N; fin.get();
-	place = new string [N];
+	place = new char *[N];
 	for(int i=0; i<N;i++)
 	{
-		getline(fin, place[i]);
+		place[i]=new char[10];
+		fin>>place[i];
 	}
 }
 Aircraft::Aircraft(const Aircraft &ob)
 {
 	name=ob.name;
 	N=ob.N;
-	place=new string [ob.N];
+	place=new char *[ob.N];
 	for(int i=0; i<ob.N; i++)
 	{
 		place[i]=ob.place[i];
 	}
-
 }
 Aircraft& Aircraft::operator=(const Aircraft &ob)
 {
 	name=ob.name;
 	N=ob.N;
-	place=new string [ob.N];
+	place=new char *[ob.N];
 	for(int i=0; i<ob.N; i++)
 	{
 		place[i]=ob.place[i];
@@ -62,7 +51,7 @@ int Aircraft::getN()
 {
 	return N;
 }
-string * Aircraft::getPlace()
+char ** Aircraft::getPlace()
 {
 	return place;
 }
@@ -77,6 +66,17 @@ void Aircraft::info()
 		cout<<place[i]<<ends;
 	}
 	cout<<"\n\n";
+}
+void Aircraft::writeFile(ofstream &fout)
+{
+	fout<<name<<endl;
+	fout<<N<<endl;
+	for(int i=0; i<N; i++)
+	{
+		if(!(i%10) && i!=0) fout<<"\n";
+		fout<<place[i];
+		if(i!=N-1) fout<<" ";
+	}
 }
 Aircraft::~Aircraft()
 {

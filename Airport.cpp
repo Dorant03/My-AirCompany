@@ -36,6 +36,30 @@ Airport& Airport::operator=(const Airport &ob)
 	country=ob.country;
 	return *this;
 }
-Airport.h
+string Airport::getName()
+{
+	return name;
+}
+string Airport::getCity()
+{
+	return city;
+}
+string Airport::getCountry()
+{
+	return country;
+}
+void Airport::info()
+{
+	cout<<"Airport "<<name<<endl;
+	cout<<"City "<<city<<endl;
+	cout<<"Country "<<country<<endl;
+	cout<<"\n";
+}
+void Airport::writeFile(ofstream &fout)
+{
+	fout<<name<<"\n";
+	fout<<city<<"\n";
+	fout<<country<<"\n";
+}
 Airport::~Airport()
 { }
